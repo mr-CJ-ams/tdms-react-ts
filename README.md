@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# 1. App.tsx
+## Purpose:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+• `App.tsx` serves as the entry point for the application. It sets up the main layout and passes initial data to the `ProfileCard` component.
 
-## Available Scripts
+## Logic Process:
 
-In the project directory, you can run:
+## 1. Import React and ProfileCard Component:
 
-### `npm start`
+• The `React` library is imported to create the functional component.
+• The `ProfileCard` component is imported to be used within App.tsx.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 2. App Component Definition:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+• The `App` component is a functional component that returns JSX.
+• It acts as a container for the entire application.
 
-### `npm test`
+## 3. Render ProfileCard:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• Inside the JSX, the `ProfileCard` component is rendered.
+• The `ProfileCard` component receives three props: `initialName`, `initialTitle`, and `initialProfileImageUrl`.
+• These props contain default data, such as the user’s name, job title, and profile image URL.
 
-### `npm run build`
+## 4. Export App Component:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+• The `App` component is exported as the default export, allowing it to be used in other parts of the application, such as in index.tsx where it gets rendered to the DOM.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Design System:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## • Component Reusability:
 
-### `npm run eject`
+• The `App.tsx` is designed to be simple and modular. It focuses on passing initial data to child components (e.g., `ProfileCard`), making it easy to manage and modify.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## • Props-Driven Approach:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The initial data for the profile card is passed through props, making the `ProfileCard` component flexible and reusable in different contexts.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# 2. ProfileCard.tsx
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Purpose:
 
-## Learn More
+• The `ProfileCard` component handles the display of the user's profile, allowing the user to click the profile image to edit their name, job title, and profile picture.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Logic Process:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 1. Import Statements:
+
+• Import React and `useState` to manage component state.
+• Import the CSS file to style the component.
+
+## 2. Component Props:
+
+• Define an interface `ProfileCardProps` for the props, ensuring that the component receives `initialName`, `initialTitle`, and `initialProfileImageUrl`.
+
+## 3. State Management:
+
+## • Profile Information State:
+
+• Use `useState` to manage `profileImage`, `name`, and `title`. These represent the current state of the user’s profile.
+
+## • Modal and Edit Form State:
+
+• Manage whether the modal or edit form is visible using `showModal` and `showEditForm` state variables.
+
+## 4. Event Handlers:
+
+## • handleImageChange:
+
+• Triggered when the user selects a new image file. It reads the file using `FileReader` and updates the `profileImage` state.
+
+## • handleNameChange & handleTitleChange:
+
+These functions update the `name` and `title` state respectively when the user types in the input fields.
+
+## • Modal Management (openModal, closeModal):
+
+• `openModal` shows the confirmation modal asking the user if they want to change their profile.
+• `closeModal` hides the modal without making any changes.
+
+## • Form Management (openEditForm, closeEditForm):
+
+• `openEditForm` displays the edit form where the user can change their profile details.
+• `closeEditForm` hides the form without saving changes.
+
+## 5. Save Changes:
+
+• `saveChanges` finalizes the modifications by hiding the edit form. (Note: You could expand this function to include saving changes to a backend or local storage.)
+
+## 6. Rendering Logic:
+
+## • Profile Image:
+
+• Render the profile image inside a circular container. Clicking on the image opens the modal.
+
+## • Profile Info:
+
+• Display the user’s name and job title below the image.
+
+## • Modal & Edit Form:
+
+• Conditionally render the modal and edit form based on the state. The modal asks for confirmation, and the edit form allows the user to update their profile information.
