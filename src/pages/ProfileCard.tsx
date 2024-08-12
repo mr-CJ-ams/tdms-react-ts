@@ -5,7 +5,6 @@ interface ProfileCardProps {
     initialName: string;
     initialTitle: string;
     initialProfileImageUrl: string;
-
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({ initialName, initialTitle, initialProfileImageUrl }) => {

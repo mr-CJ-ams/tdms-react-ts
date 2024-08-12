@@ -91,10 +91,15 @@
 
 .edit-form-content {
     background-color: white;
+    width: 300px;
+    height: 400px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .close-btn {
