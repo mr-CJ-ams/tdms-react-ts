@@ -6,21 +6,18 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 100px;
+    width: 130px;
     background-color: #04B1B8;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex; 
     padding: 10px 10px; 
 }
 
-.sidebar.active{
-    width: 200px;
-}
 
-.sidebar.active ~ .main-content {
-    left: 200px;
-    width: calc(100% - 200px);
+.sidebar ~ .main-content {
+    left: 130px;
+    width: calc(100% - 130px);
 }
 
 .sidebar a {
@@ -42,20 +39,6 @@
 
 i{
     font-size: 30px;
-}
-
-.tooltip {
-    position: absolute;
-    left: 90px; /* Adjust this value based on your layout  and to include a 20px gap */
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #ffffff; /* Tooltip background color */
-    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
-    color: #171616; /* Tooltip text color */
-    padding: 5px;
-    border-radius: 4px;
-    white-space: nowrap; /* Prevent text wrapping */
-    z-index: 1000; /* Ensure the tooltip is above other elements */
 }
 
 .link-container {
