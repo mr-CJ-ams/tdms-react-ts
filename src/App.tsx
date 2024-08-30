@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Sidebar/>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
@@ -20,6 +19,7 @@ function App() {
           <Route path="/logout" element={<Logout/>} />
           <Route path="*" element={ <h1>Page not found</h1> } />
         </Routes>
+        <Sidebar/>
       </Router>
     </div>
   );
